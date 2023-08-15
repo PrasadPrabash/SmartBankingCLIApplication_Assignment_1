@@ -9,7 +9,7 @@ public class Bank_App {
         final String COLOR_YELLOW_BOLD = "\033[1;33m";
         final String COLOR_RESER = "\033[0m";
         final String COLOR_RED = "\033[31m";
-        int[] account = new int[0];
+        double[] account = new double[0];
         String[] customId = new String[0];
         String[] name = new String[0];
         String id = "";
@@ -58,7 +58,7 @@ mainloop:
 
 
                 case OPEN_NEW_ACC :
-                    System.out.printf("Account Number: SDB-%05d \n",(account.length +1));
+                    System.out.printf("Account Number: SDB-%04d \n",(customId.length +1));
                     // for (int i = 0; i < customId.length; i++) {
                     //     String id = String.format("SDB-%05d ",(i+1));
                         
@@ -103,7 +103,7 @@ mainloop:
                         index = true;
                     }
                     String str = String.valueOf(iniaccbal);
-                    int strval = str.length();
+                    
                     }while(!index);
 
                     double[] newAcc = new double[account.length +1];
@@ -120,38 +120,14 @@ mainloop:
                     newCustomers[newCustomers.length-1] = accname;
                     customId = newCustomID;
                     name = newCustomers;
+                    account = newAcc;
 
-                    System.out.printf("\033[1;32m%s\033[0m\033[32m your acoount Add Successfully!.\nInitial amount is Rs.%,12.2f\n\033[0mDo you need to add another name [Y/n]?",accname,iniaccbal);
+                    System.out.printf("\033[1;32m%s\033[0m\033[32m your new accounthas been added successfully!.\nInitial amount is Rs.%,12.2f\n\033[0mDo you need to add another name [Y/n]?",accname,iniaccbal);
                     if(scanner.nextLine().strip().toUpperCase().equals("Y")) continue;
                     screen = DASHBOARD;
                     break;
-                
-
-
-
                 }while(!valid);
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         }while(true);
         
