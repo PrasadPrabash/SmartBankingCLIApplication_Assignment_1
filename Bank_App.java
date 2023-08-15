@@ -41,6 +41,7 @@ mainloop:
                     System.out.println("\t[6] Drop Existing Account");
                     System.out.println("\t[7] Exit");
                     System.out.printf("-".repeat(55).concat("\n"));
+                    System.out.print("\tEnter an Option to continue: ");
                     int option = scanner.nextInt();
                     scanner.nextLine();
 
@@ -122,7 +123,7 @@ mainloop:
                     name = newCustomers;
                     account = newAcc;
 
-                    System.out.printf("\033[1;32m%s\033[0m\033[32m your new accounthas been added successfully!.\nInitial amount is Rs.%,12.2f\n\033[0mDo you need to add another name [Y/n]?",accname,iniaccbal);
+                    System.out.printf("\033[1;32m%s\033[0m\033[32m your new accounthas been added successfully!.\nInitial amount is Rs.%,.2f\n\033[0mDo you need to add another name [Y/n]?",accname,iniaccbal);
                     if(scanner.nextLine().strip().toUpperCase().equals("Y")) continue;
                     screen = DASHBOARD;
                     break;
