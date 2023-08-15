@@ -58,6 +58,11 @@ mainloop:
 
                 case OPEN_NEW_ACC :
                     System.out.printf("Account Number: SDB-%05d \n",(account.length +1));
+                    for (int i = 0; i < name.length; i++) {
+                        String id = String.format("SDB-%05d ",(i+1));
+                        customId[i] = id;
+                        
+                    }
 
                     boolean valid = true;
                     String accname;
@@ -75,12 +80,17 @@ mainloop:
                     }
 
                     for (int i = 0; i < accname.length(); i++) {
-                        if(!Character.isLetter(accname.charAt(i))){
+                        if(!(Character.isLetter(accname.charAt(i))|| Character.isSpaceChar(accname.charAt(i)))){
                             System.out.printf("%sInvalid Name%s \n",COLOR_RED,COLOR_RESER);
                             valid = false;
                             break;
 
                         }
+                        
+                    }
+                    for (int i = 0; i < name.length; i++) {
+                        
+                        name[i] = accname;
                         
                     }
                     boolean index = true;
@@ -98,6 +108,8 @@ mainloop:
                         index = true;
                     }
                     }while(!index);
+                    break;
+                
 
 
 
