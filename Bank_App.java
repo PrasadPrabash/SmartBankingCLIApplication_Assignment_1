@@ -9,9 +9,10 @@ public class Bank_App {
         final String COLOR_YELLOW_BOLD = "\033[1;33m";
         final String COLOR_RESER = "\033[0m";
         final String COLOR_RED = "\033[31m";
-        String[] account = new String[0];
+        int[] account = new int[0];
         String[] customId = new String[0];
         String[] name = new String[0];
+        String id = "";
        
 
         final String DASHBOARD = "Welcome Smart Banking App";
@@ -58,11 +59,11 @@ mainloop:
 
                 case OPEN_NEW_ACC :
                     System.out.printf("Account Number: SDB-%05d \n",(account.length +1));
-                    for (int i = 0; i < name.length; i++) {
-                        String id = String.format("SDB-%05d ",(i+1));
-                        customId[i] = id;
+                    // for (int i = 0; i < customId.length; i++) {
+                    //     String id = String.format("SDB-%05d ",(i+1));
                         
-                    }
+                        
+                    // }
 
                     boolean valid = true;
                     String accname;
@@ -86,12 +87,6 @@ mainloop:
                             break;
 
                         }
-                        
-                    }
-                    for (int i = 0; i < name.length; i++) {
-                        
-                        name[i] = accname;
-                        
                     }
                     boolean index = true;
                     do{
@@ -108,6 +103,24 @@ mainloop:
                         index = true;
                     }
                     }while(!index);
+
+                    int[] newAcc = new int[account.length +1];
+                    String[] newCustomers = new String[name.length + 1];
+                    String[] newCustomID = new String[customId.length + 1];
+                    for (int i = 0; i < name.length; i++) {
+                        id = String.format("SDB-%05d ",(i+1));
+                        newCustomers[i] = name[i];
+                        newCustomID[i]= customId[i];
+                        newAcc[i] = account[i];
+                    }
+                    newCustomID[newCustomID.length -1] = id;
+                    newCustomers[newCustomers.length-1] = accname;
+                    customId = newCustomID;
+                    name = newCustomers;
+
+                    System.out.printf("%s\033[32m Acoount Add Successfully!.\n\033[0mDo you need to add another name [Y/n]?",name);
+                    if(scanner.nextLine().strip().toUpperCase().equals("Y")) continue;
+                    screen = DASHBOARD;
                     break;
                 
 
