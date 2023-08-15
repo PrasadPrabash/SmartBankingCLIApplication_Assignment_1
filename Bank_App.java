@@ -83,14 +83,21 @@ mainloop:
                         }
                         
                     }
-
+                    boolean index = true;
+                    do{
+                        
                     System.out.printf("Enter Initial Deposit Amount: Rs.");
                     iniaccbal = scanner.nextInt();
                     scanner.nextLine();
                     if(!(iniaccbal>5000) ){
                         System.out.printf("%sShould be Deposit more than Rs.5000.00%s \n",COLOR_RED,COLOR_RESER);
+                        index = false;
                         valid = false;
                         continue;}
+                    else{
+                        index = true;
+                    }
+                    }while(!index);
 
 
 
