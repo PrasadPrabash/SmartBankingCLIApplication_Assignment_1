@@ -92,7 +92,7 @@ mainloop:
                     do{
                         
                     System.out.printf("Enter Initial Deposit Amount: Rs.");
-                    iniaccbal = scanner.nextInt();
+                    iniaccbal = scanner.nextDouble();
                     scanner.nextLine();
                     if(!(iniaccbal>5000) ){
                         System.out.printf("%sShould be Deposit more than Rs.5000.00%s \n",COLOR_RED,COLOR_RESER);
@@ -102,9 +102,11 @@ mainloop:
                     else{
                         index = true;
                     }
+                    String str = String.valueOf(iniaccbal);
+                    int strval = str.length();
                     }while(!index);
 
-                    int[] newAcc = new int[account.length +1];
+                    double[] newAcc = new double[account.length +1];
                     String[] newCustomers = new String[name.length + 1];
                     String[] newCustomID = new String[customId.length + 1];
                     for (int i = 0; i < name.length; i++) {
@@ -113,12 +115,13 @@ mainloop:
                         newCustomID[i]= customId[i];
                         newAcc[i] = account[i];
                     }
+                    newAcc[newAcc.length - 1] = iniaccbal;
                     newCustomID[newCustomID.length -1] = id;
                     newCustomers[newCustomers.length-1] = accname;
                     customId = newCustomID;
                     name = newCustomers;
 
-                    System.out.printf("%s\033[32m Acoount Add Successfully!.\n\033[0mDo you need to add another name [Y/n]?",name);
+                    System.out.printf("\033[1;32m%s\033[0m\033[32m your acoount Add Successfully!.\nInitial amount is Rs.%,12.2f\n\033[0mDo you need to add another name [Y/n]?",accname,iniaccbal);
                     if(scanner.nextLine().strip().toUpperCase().equals("Y")) continue;
                     screen = DASHBOARD;
                     break;
