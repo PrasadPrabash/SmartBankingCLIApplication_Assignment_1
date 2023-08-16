@@ -59,7 +59,7 @@ mainloop:
 
 
                 case OPEN_NEW_ACC :
-                    System.out.printf("Account Number: SDB-%04d \n",(customId.length +1));
+                    System.out.printf("Account Number: SDB-%05d \n",(customId.length +1));
                     // for (int i = 0; i < customId.length; i++) {
                     //     String id = String.format("SDB-%05d ",(i+1));
                         
